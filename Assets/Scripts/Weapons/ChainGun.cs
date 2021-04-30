@@ -31,6 +31,26 @@ public class ChainGun : MonoBehaviour, IGun
     private float canShoot = 0;
     private float currentBarrelSpeed = 0;
     ObjectPooler objectPooler;
+    public Vector3 modelInitPosition;
+    bool firstSpawn = true;
+
+    private void Start()
+    {
+        objectPooler = ObjectPooler.instance;
+    }
+
+    // Update is called once per frame
+    void FixedUpdate()
+    {
+        if (shooting)
+        {
+            FireWeapon();
+        }
+        else
+        {
+            SlowDownBarrel();
+        }
+    }
 
     public void Reload()
     {
@@ -46,7 +66,7 @@ public class ChainGun : MonoBehaviour, IGun
     {
         if (currentBarrelSpeed <= 2000)
         {
-            currentBarrelSpeed += 15;
+            currentBarrelSpeed += 30;
         }
         else
         {
@@ -54,6 +74,7 @@ public class ChainGun : MonoBehaviour, IGun
             {
                 canShoot = Time.time + 1 / fireRate;
                 audioSource.Play();
+                GunShake();
                 muzzle.SetActive(true);
                 RaycastHit hit;
                 if (Physics.Raycast(muzzleTransform.position, muzzleTransform.forward, out hit, Mathf.Infinity, layerMask))
@@ -79,27 +100,19 @@ public class ChainGun : MonoBehaviour, IGun
         }
         model.transform.Rotate(new Vector3(0, 0, currentBarrelSpeed * Time.deltaTime));
     }
-    private void Start()
-    {
-        objectPooler = ObjectPooler.instance;
-    }
-
-    // Update is called once per frame
-    void FixedUpdate()
-    {
-        if (shooting)
-        {
-            FireWeapon();
-        }
-        else
-        {
-            SlowDownBarrel();
-        }
-    }
 
     public void UnShoot()
     {
         shooting = false;
+        if(firstSpawn)
+        {
+            firstSpawn = false;
+            modelInitPosition = model.transform.localPosition;
+        }
+        else
+        {
+            model.transform.localPosition = modelInitPosition;
+        }
     }
 
     void SlowDownBarrel()
@@ -114,6 +127,16 @@ public class ChainGun : MonoBehaviour, IGun
         {
             currentBarrelSpeed = 0;
         }
+    }
+
+    void GunShake()
+    {
+        if(modelInitPosition == Vector3.zero)
+        {
+            modelInitPosition = model.transform.localPosition;
+        }
+        Vector3 newPos = new Vector3(Random.Range(-.01f, .01f), Random.Range(-.01f, .01f), 0);
+        model.transform.localPosition = modelInitPosition + newPos;
     }
 
     public void SwitchIn()

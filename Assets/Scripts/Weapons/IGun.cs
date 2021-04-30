@@ -14,6 +14,5 @@ public interface IGun
     public void Shoot();
     public void UnShoot();
     public void Reload();
-
     public void SwitchIn();
 }

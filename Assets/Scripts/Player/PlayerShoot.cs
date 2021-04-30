@@ -8,6 +8,7 @@ public class PlayerShoot : MonoBehaviour
 
     public List<GameObject> weapons = new List<GameObject>();
     private List<GameObject> spawnedWeapons = new List<GameObject>();
+    public Transform gunsTransform;
 
     private IGun currentWeapon;
     int currentWeaponIndex = 0;
@@ -16,7 +17,7 @@ public class PlayerShoot : MonoBehaviour
     {
         foreach (GameObject obj in weapons)
         {
-            GameObject go = Instantiate(obj, transform);
+            GameObject go = Instantiate(obj, gunsTransform);
             spawnedWeapons.Add(go);
             go.SetActive(false);
         }

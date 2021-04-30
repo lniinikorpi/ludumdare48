@@ -140,6 +140,7 @@ MonoBehaviour:
   layerMask:
     serializedVersion: 2
     m_Bits: 119
+  modelInitPosition: {x: 0, y: 0, z: 0}
 --- !u!82 &542381212373368388
 AudioSource:
   m_ObjectHideFlags: 0
@@ -259,8 +260,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 542381212466899691}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.199, z: 0.446}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0.199, z: 0.393}
   m_LocalScale: {x: 0.35586, y: 0.35586, z: 0.35586}
   m_Children:
   - {fileID: 7748529393261972562}

@@ -15,10 +15,12 @@ public class Player : MonoBehaviour
     public float getHitAgainTime = 1;
     float canTakeHit;
     bool invulnerable = false;
+    PostProcessManager postProcessManager;
     // Start is called before the first frame update
     void Start()
     {
         currentHealth = maxHealth;
+        postProcessManager = GetComponentInChildren<PostProcessManager>();
         HUDManager.instance.Updatehealth((int)currentHealth);
     }
     
@@ -39,6 +41,8 @@ public class Player : MonoBehaviour
         {
             return;
         }
+        print("hit taken");
+        StartCoroutine(postProcessManager.HitFlash(.6f));
         invulnerable = true;
         canTakeHit = Time.time + getHitAgainTime;
         if(currentHealth - value > 0)
