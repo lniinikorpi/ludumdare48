@@ -67,9 +67,12 @@ public class ObjectPooler : MonoBehaviour
             objectToSpawn = Instantiate(pool.prefab);
         }
 
-        objectToSpawn.SetActive(true);
-        objectToSpawn.transform.position = position;
-        objectToSpawn.transform.rotation = rotation;
+        if (objectToSpawn)
+        {
+            objectToSpawn.SetActive(true);
+            objectToSpawn.transform.position = position;
+            objectToSpawn.transform.rotation = rotation; 
+        }
 
         return objectToSpawn;
     }

@@ -1288,11 +1288,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 305622676835714269, guid: 4b60f98b95ab28845ab85747a9426643, type: 3}
       propertyPath: dungeonConfigs.Array.data[0].enemyCountRange.max
-      value: 6
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 305622676835714269, guid: 4b60f98b95ab28845ab85747a9426643, type: 3}
       propertyPath: dungeonConfigs.Array.data[0].enemyCountRange.min
-      value: 5
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 305622676835714269, guid: 4b60f98b95ab28845ab85747a9426643, type: 3}
       propertyPath: dungeonConfigs.Array.data[0].enemyPrefabs.Array.size

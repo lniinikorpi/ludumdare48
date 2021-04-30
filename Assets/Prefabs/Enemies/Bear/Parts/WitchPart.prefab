@@ -67,6 +67,7 @@ MonoBehaviour:
   shooter: {fileID: 2899845762552265041}
   gunDamage: 15
   touchDamage: 30
+  deathAudioVolume: 0.5
   audioSource: {fileID: 2899845762348347965}
   hitClips:
   - {fileID: 8300000, guid: fe7202439e31ab7408d9718175907bb0, type: 3}

@@ -97,12 +97,13 @@ MonoBehaviour:
   shooter: {fileID: 7036751205625544198}
   gunDamage: 5
   touchDamage: 30
+  deathAudioVolume: 0.3
   audioSource: {fileID: 7036751205027296618}
   hitClips:
   - {fileID: 8300000, guid: fe7202439e31ab7408d9718175907bb0, type: 3}
   - {fileID: 8300000, guid: 477891bcdc8269a419e9c368a1fa3ebd, type: 3}
   - {fileID: 8300000, guid: 4bc256127d41ca148a83d08a608502af, type: 3}
-  deathClip: {fileID: 8300000, guid: fba70753690bb214f9f08b86a14978f5, type: 3}
+  deathClip: {fileID: 8300000, guid: b7c0bcca4ce4e0448b0da762d3e19be6, type: 3}
   isAlive: 1
   enemyShoot: {fileID: 7036751205027296532}
   enemyMovement: {fileID: 0}
@@ -149,7 +150,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.3
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -262,9 +263,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: c49b1f23508a68e4180e7ef73cbc2c5b, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 948a53f2d5e86ac45999b1896e97c4ee, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.165
   m_Pitch: 1
   Loop: 0
   Mute: 0

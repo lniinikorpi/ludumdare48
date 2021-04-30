@@ -12,6 +12,7 @@ public class Enemy : MonoBehaviour
     public float touchDamage = 10;
     ObjectPooler.Pool pool;
     ObjectPooler objectPooler;
+    public float deathAudioVolume;
     public AudioSource audioSource;
     public List<AudioClip> hitClips = new List<AudioClip>();
     public AudioClip deathClip;
@@ -41,34 +42,33 @@ public class Enemy : MonoBehaviour
             Vector3 direction = (hitPoint - transform.position).normalized;
             Quaternion bloodRot = Quaternion.LookRotation(direction);
             GameObject blood = objectPooler.SpawnFromPool("EnemyBloodSplatter", hitPoint, bloodRot, pool);
-            blood.transform.parent = gameObject.transform;
+            //blood.transform.parent = gameObject.transform;
             blood.transform.localEulerAngles = new Vector3(0, blood.transform.localEulerAngles.y, 0);
             PlayHitAudio();
         }
         else
         {
             currentHp = 0;
-            StartCoroutine(Die());
+            Die();
         }
     }
 
-    IEnumerator Die()
+    void Die()
     {
         isAlive = false;
-        audioSource.clip = deathClip;
-        audioSource.Play();
         GetComponent<Collider>().enabled = false;
-        Instantiate(deathExplosion, transform.position, Quaternion.identity);
+        GameObject obj = Instantiate(deathExplosion, transform.position, Quaternion.identity);
+        Explosion exp = obj.GetComponent<Explosion>();
+        if(exp)
+        {
+            exp.PlayDeathSound(deathClip, deathAudioVolume);
+        }
         if (enemyMovement)
         {
             if (enemyMovement.enabled)
             {
                 enemyMovement.enabled = false;
             }
-        }
-        while (audioSource.isPlaying)
-        {
-            yield return new WaitForSeconds(.2f);
         }
         if (enemyShoot)
         {

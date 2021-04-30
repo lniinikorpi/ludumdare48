@@ -64,12 +64,13 @@ MonoBehaviour:
   shooter: {fileID: 0}
   gunDamage: 0
   touchDamage: 20
+  deathAudioVolume: 0.3
   audioSource: {fileID: 6687825411245009110}
   hitClips:
   - {fileID: 8300000, guid: fe7202439e31ab7408d9718175907bb0, type: 3}
   - {fileID: 8300000, guid: 477891bcdc8269a419e9c368a1fa3ebd, type: 3}
   - {fileID: 8300000, guid: 4bc256127d41ca148a83d08a608502af, type: 3}
-  deathClip: {fileID: 8300000, guid: a393f7063fc1f4a46999700e50a8b2e6, type: 3}
+  deathClip: {fileID: 8300000, guid: b7c0bcca4ce4e0448b0da762d3e19be6, type: 3}
   isAlive: 1
   enemyShoot: {fileID: 0}
   enemyMovement: {fileID: 0}
